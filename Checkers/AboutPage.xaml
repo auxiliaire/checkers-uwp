@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="Checkers.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="TitleBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="BackButtonGrid">
+                <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"  Visibility="Visible" />
+            </Grid>
+            <Grid Grid.Column="1" x:Name="MainTitleBar" Background="Transparent">
+                <TextBlock Text="Checkers" VerticalAlignment="Center" 
+FontSize="12" FontFamily="Segoe UI" FontWeight="Normal" Margin="10,0"></TextBlock>
+            </Grid>
+            <Grid Grid.Column="3" x:Name="RightMask"/>
+        </Grid>
+
+        <Grid x:Name="OpeningGrid" Grid.Row="1" Height="Auto" Margin="30" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Checkers" FontSize="96" TextAlignment="Center" VerticalAlignment="Center" />
+
+            <ScrollViewer Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+                <RichTextBlock x:Name="Message" FontSize="18" TextAlignment="Left" VerticalAlignment="Top" Width="Auto" Height="Auto">
+                    <Paragraph FontSize="32" Margin="0 12">How to Play</Paragraph>
+                    <Paragraph>
+                        This is a standard Chinese Checkers implementation and the same rules apply:
+                        <LineBreak/>
+                        There are two kinds of cells, filled and empty. The player has to 'jump' with a ball over another in order remove it.
+                        <LineBreak/>
+                        <Bold>The goal is to remove all but one ball from the board.</Bold>
+                        <LineBreak/>
+                        <Bold>1.</Bold> Start dragging a ball, or select it with a click or tap to move.
+                        <LineBreak/>
+                        <Bold>2.</Bold> Find a valid destination to jump to:
+                        <LineBreak/>
+                        an empty cell in the same row or column as the selected ball (or the ball being dragged), which is just one cell away from where the cell of origin, and it's empty, while the cell in between is filled, to that the "jump" can remove the intermediary ball.
+                        <LineBreak/>
+                        <Bold>That means, only filled cells can be jumped over.</Bold>
+                        <LineBreak/>
+                        <Bold>The ball being dragged (or selected to move) can jump over only one cell, and cannot move diagonally.</Bold>
+                    </Paragraph>
+                    <Paragraph FontSize="32" Margin="0 12">Credits</Paragraph>
+                    <Paragraph>
+                        This is an open source sample application written in C# .NET for UWP.
+                        <LineBreak/>
+                        <Bold>Developer:</Bold> Viktor Daróczi
+                        <LineBreak/>
+                        <Bold>Year:</Bold> 2020
+                    </Paragraph>
+                    <Paragraph FontSize="32" Margin="0 12" TextAlignment="Center">Have Fun!</Paragraph>
+                </RichTextBlock>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

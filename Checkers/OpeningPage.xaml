@@ -1,0 +1,91 @@
+﻿<Page
+    x:Class="Checkers.OpeningPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Checkers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="TitleBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="BackButtonGrid">
+                <Button x:Name="BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}"  Visibility="Collapsed" />
+            </Grid>
+            <Grid Grid.Column="1" x:Name="MainTitleBar" Background="Transparent">
+                <TextBlock Text="Checkers" VerticalAlignment="Center" 
+FontSize="12" FontFamily="Segoe UI" FontWeight="Normal" Margin="10,0"></TextBlock>
+            </Grid>
+            <Grid Grid.Column="3" x:Name="RightMask"/>
+        </Grid>
+
+        <Grid x:Name="OpeningGrid" Grid.Row="1" Height="Auto" Margin="30" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Checkers" FontSize="96" TextAlignment="Center" VerticalAlignment="Center" />
+
+            <Image Source="Assets/ball-green-128.png" Grid.Column="0" Grid.Row="1" Stretch="Uniform" MaxHeight="128" MaxWidth="128" />
+
+            <Grid Grid.Column="0" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button
+                    Click="StartButton_Click"
+                    ClickMode="Release"
+                    Content="Start"
+                    FontSize="30"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Height="Auto"
+                    HorizontalAlignment="Stretch"
+                    Margin="0 5 0 5"
+                    VerticalAlignment="Stretch" />
+                <Button
+                    Click="AboutButton_Click"
+                    ClickMode="Release"
+                    Content="About"
+                    FontSize="30"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Height="Auto"
+                    HorizontalAlignment="Stretch"
+                    Margin="0 5 0 5"
+                    VerticalAlignment="Stretch" />
+                <Button
+                    Click="QuitButton_Click"
+                    ClickMode="Release"
+                    Content="Quit"
+                    FontSize="30"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Height="Auto"
+                    HorizontalAlignment="Stretch"
+                    Margin="0 5 0 5"
+                    VerticalAlignment="Stretch" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

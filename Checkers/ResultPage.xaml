@@ -1,0 +1,49 @@
+﻿<Page
+    x:Class="Checkers.ResultPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:components="using:Checkers.Components"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" x:Name="TitleBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="BackButtonGrid">
+                <Button x:Name="BackButton" Click="BackButton_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"  Visibility="Visible" />
+            </Grid>
+            <Grid Grid.Column="1" x:Name="MainTitleBar" Background="Transparent">
+                <TextBlock Text="Checkers" VerticalAlignment="Center" 
+FontSize="12" FontFamily="Segoe UI" FontWeight="Normal" Margin="10,0"></TextBlock>
+            </Grid>
+            <Grid Grid.Column="3" x:Name="RightMask"/>
+        </Grid>
+
+        <Grid x:Name="OpeningGrid" Grid.Row="1" Height="Auto" Margin="30" Width="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Congratulations!" FontSize="96" TextAlignment="Center" VerticalAlignment="Center" />
+
+            <components:Rating x:Name="Rating" Stars="{x:Bind Stars, Mode=OneWay}" Grid.Column="0" Grid.Row="1" Height="Auto" Width="Auto" />
+
+            <TextBlock x:Name="Message" Grid.Column="0" Grid.Row="2" FontSize="24" TextAlignment="Center" VerticalAlignment="Center" />
+        </Grid>
+    </Grid>
+</Page>

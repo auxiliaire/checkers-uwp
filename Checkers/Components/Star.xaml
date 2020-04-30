@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="Checkers.Components.Star"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:Checkers.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ImageSource x:Key="StarFilled">Assets/star-filled-128.png</ImageSource>
+        <ImageSource x:Key="StarVoid">Assets/star-void-128.png</ImageSource>
+        <c:BoolVisibilityConverter x:Key="BoolVisibilityConverter" />
+        <c:ValueConverterCollection x:Key="InverseBoolVisibilityConverter">
+            <c:BoolInverterConverter/>
+            <c:BoolVisibilityConverter/>
+        </c:ValueConverterCollection>
+        <Style x:Key="StarImageStyle" TargetType="Image">
+            <Setter Property="MaxHeight" Value="128" />
+            <Setter Property="MaxWidth" Value="128" />
+            <Setter Property="Stretch" Value="Uniform" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Image x:Name="StarVoid"
+               Source="{StaticResource StarVoid}"
+               Style="{StaticResource StarImageStyle}"
+               Visibility="{x:Bind Filled, Converter={StaticResource InverseBoolVisibilityConverter}, Mode=OneWay}"/>
+        <Image x:Name="StarFilled"
+               Source="{StaticResource StarFilled}"
+               Style="{StaticResource StarImageStyle}"
+               Visibility="{x:Bind Filled, Converter={StaticResource BoolVisibilityConverter}, Mode=OneWay}"/>
+    </Grid>
+</UserControl>
