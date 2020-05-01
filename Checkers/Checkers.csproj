@@ -175,8 +175,6 @@
     <Content Include="Assets\Audio\flip.mp3" />
     <Content Include="Assets\Audio\short_pop_sound.mp3" />
     <Content Include="Assets\ball-green-128.png" />
-    <Content Include="checkers-uwp-game.jpg" />
-    <Content Include="checkers-uwp-opening.jpg" />
     <Content Include="Components\Assets\ball-green-128.png" />
     <Content Include="Components\Assets\star-filled-128.png" />
     <Content Include="Components\Assets\star-void-128.png" />
@@ -235,10 +233,6 @@
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Checkers_TemporaryKey.pfx" />
-    <None Include="readme.md" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
